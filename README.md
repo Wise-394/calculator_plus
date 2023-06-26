@@ -6,7 +6,7 @@ An Android application with a hidden notes feature. The calculator works like an
 //still on development 
 
 
-## Tech Stack
+## Tech used
 
 ![android Badge](https://img.shields.io/badge/AndroidStudio-Green)
 ![kotlin Badge](https://img.shields.io/badge/Kotlin-purple)
