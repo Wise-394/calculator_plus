@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkThemeBg"
+    android:padding="5dp"
+    tools:context=".notes.AddEditNoteActivity">
+
+    <!--edit text for note title-->
+    <EditText
+        android:id="@+id/idEdtNoteName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/btnMainBg"
+        android:hint="Enter Note Title"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="@dimen/_20ssp"
+        app:layout_constraintBottom_toTopOf="@+id/idEdtNoteDesc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--edit text for note description-->
+
+    <!--button for saving and updating a note-->
+
+    <EditText
+        android:id="@+id/idEdtNoteDesc"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/darkThemeBg"
+        android:gravity="start|top"
+        android:hint="Enter your text here"
+        android:padding="@dimen/_5sdp"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/idEdtNoteDesc"
+        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="0.978"
+        app:srcCompat="@drawable/baseline_check_24"
+        android:tint="@color/black"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="80dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
