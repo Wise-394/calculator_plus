@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.wise.calculatorplus.notes.Notes_MainActivity
 import com.wise.calculatorplus.R
+import com.wise.calculatorplus.dialogs.Dialogs
 
 //welcome this is my first android project so expect some spaghetti code tho i did
 // my best to make this code readable as possible
@@ -35,13 +36,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var fabInfo: FloatingActionButton
     private var forgotPassCounter: Int = 0
     private var defaultValue: String = ""
+    private val dialogs = Dialogs(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         //load db and init ui
-        loadDB()
+        loadSP()
         initUI()
+        firstTimeLogin()
 
         fabInfo.setOnClickListener {
             dialogPassRecovery()
@@ -313,7 +316,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             findViewById<Button>(buttonId).setOnClickListener(this)
         }
 
-        defaultValue = R.string.defaultValue.toString()
+        defaultValue = getString(R.string.defaultValue)
+
     }
 
 //hidden feature related
@@ -360,10 +364,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             forgotPassCounter++
         }
     }
-    private fun loadDB(){
+    private fun loadSP(){
         sf = getSharedPreferences("passTag", MODE_PRIVATE)
         sfEditor = sf.edit()
-        spPass = sf.getString("sf_pass", "00000000000000000000").toString()
+        spPass = sf.getString("sf_pass", "0000").toString()
         spQuestion = sf.getString("sf_question","").toString()
         spAnswer = sf.getString("sf_answer","").toString()
 
@@ -371,18 +375,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun firstTimeLogin() {
         if (spPass == defaultValue) {
-            TODO("ask for password")
-            TODO("asl for recovery password")
-            TODO("show how to login")
-            TODO("show how to use recovery password")
+            tvPrev.text = "Enter ${spPass} and press the = key"
+           // TODO("show how to login")
+           // TODO("show how to use recovery password")
         }
     }
 
-    private fun changePass(newPass:String){
-        sfEditor.putString("sf_pass", newPass)
-        sfEditor.commit()
-        Toast.makeText(this, "password changed successfully", Toast.LENGTH_SHORT).show()
-    }
 }
 
 

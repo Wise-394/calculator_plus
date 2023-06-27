@@ -50,7 +50,7 @@ class Dialogs(private val context: Context) {
         dialog.show()
     }
 
-    fun dialogChangePass() {
+    fun dialogChangePass(firstTimeLogin: Boolean) {
         val dialog = Dialog(context)
         dialog.setContentView(R.layout.dialog_change_pass)
         dialog.window?.setLayout(
@@ -75,7 +75,12 @@ class Dialogs(private val context: Context) {
         }
 
         btnCancel.setOnClickListener {
-            dialog.dismiss()
+            if(!firstTimeLogin){
+                dialog.dismiss()
+            }
+            else{
+                Toast.makeText(context, "please enter a password", Toast.LENGTH_SHORT).show()
+            }
         }
 
         dialog.show()
@@ -124,10 +129,10 @@ class Dialogs(private val context: Context) {
     }
 
     private fun resetPassword(){
-        val defaultPass:String = R.string.defaultValue.toString()
+        val defaultPass: String = context.getString(R.string.defaultValue)
         val sharedPreferences: SharedPreferences = context.getSharedPreferences("passTag", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
-        editor.putString("sf_pass",defaultPass)
+        editor.putString("sf_pass",defaultPass.toString())
         editor.apply()
     }
 }

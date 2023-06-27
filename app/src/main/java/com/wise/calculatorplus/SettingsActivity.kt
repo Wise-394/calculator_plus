@@ -27,7 +27,7 @@ class SettingsActivity : AppCompatActivity() {
         //dialog password
         cvChangePass = findViewById(R.id.cvChangePass)
         cvChangePass.setOnClickListener{
-            dialogs.dialogChangePass()
+            dialogs.dialogChangePass(false)
         }
 
         //dialog passRecovery
