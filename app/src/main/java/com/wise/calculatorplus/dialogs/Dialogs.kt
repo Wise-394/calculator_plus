@@ -97,6 +97,7 @@ class Dialogs(private val context: Context) {
         btnConfirm.setOnClickListener {
             resetPassword()
             dialog.dismiss()
+            Toast.makeText(context, "Password Reset Successfully", Toast.LENGTH_SHORT).show()
             }
 
         btnCancel.setOnClickListener {

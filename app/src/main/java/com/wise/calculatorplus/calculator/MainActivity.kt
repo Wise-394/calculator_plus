@@ -34,47 +34,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var spQuestion: String
     private lateinit var fabInfo: FloatingActionButton
     private var forgotPassCounter: Int = 0
-    private var defaultValue: String = "00000000000000000000"
+    private var defaultValue: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //load db and init ui
         loadDB()
-         // we will use this to count how many times user pressed the info fab
-
-        //init the calculator guis
-        calculator = ViewModelProvider(this)[Calculator::class.java]
-        tvAns = findViewById(R.id.tvAns)
-        tvNum1 = findViewById(R.id.tvNum1)
-        tvNum2 = findViewById(R.id.tvNum2)
-        tvPrev = findViewById(R.id.tvPrev)
-        fabInfo = findViewById(R.id.fabInfo)
-
-        //passrecovery dialog
+        initUI()
 
         fabInfo.setOnClickListener {
             dialogPassRecovery()
         }
 
-        //init num
-        val numberButtonIds = listOf(
-            R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
-            R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9
-        )
-
-        numberButtonIds.forEach { buttonId ->
-            findViewById<Button>(buttonId).setOnClickListener(this)
-        }
-
-        //init btn op
-        val operatorButtonIds = listOf(
-            R.id.btnPlus, R.id.btnMinus, R.id.btnMultiply,
-            R.id.btnDivide, R.id.btnAllClear, R.id.btnEqual,
-            R.id.btnAns, R.id.btnClear, R.id.btnNegativeOrPositive
-        )
-
-        operatorButtonIds.forEach { buttonId ->
-            findViewById<Button>(buttonId).setOnClickListener(this)
-        }
         //observe
         calculator.ans.observe(this) {
             val formattedString = if (it % 1 == 0f) {
@@ -313,8 +285,39 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         toast.show()
     }
 
+    private fun initUI(){
+        calculator = ViewModelProvider(this)[Calculator::class.java]
+        tvAns = findViewById(R.id.tvAns)
+        tvNum1 = findViewById(R.id.tvNum1)
+        tvNum2 = findViewById(R.id.tvNum2)
+        tvPrev = findViewById(R.id.tvPrev)
+        fabInfo = findViewById(R.id.fabInfo)
+
+        val numberButtonIds = listOf(
+            R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+            R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9
+        )
+
+        numberButtonIds.forEach { buttonId ->
+            findViewById<Button>(buttonId).setOnClickListener(this)
+        }
+
+        //init btn op
+        val operatorButtonIds = listOf(
+            R.id.btnPlus, R.id.btnMinus, R.id.btnMultiply,
+            R.id.btnDivide, R.id.btnAllClear, R.id.btnEqual,
+            R.id.btnAns, R.id.btnClear, R.id.btnNegativeOrPositive
+        )
+
+        operatorButtonIds.forEach { buttonId ->
+            findViewById<Button>(buttonId).setOnClickListener(this)
+        }
+
+        defaultValue = R.string.defaultValue.toString()
+    }
+
 //hidden feature related
-private fun goToMainScr(DBpass : String,num1Pass: String){
+    private fun goToMainScr(DBpass : String,num1Pass: String){
     if(DBpass == num1Pass){
         val intent = Intent(this, Notes_MainActivity::class.java)
         startActivity(intent)
