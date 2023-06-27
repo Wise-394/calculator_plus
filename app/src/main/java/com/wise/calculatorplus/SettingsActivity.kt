@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import com.wise.calculatorplus.dialogs.Dialogs
 
@@ -27,7 +28,9 @@ class SettingsActivity : AppCompatActivity() {
         //dialog password
         cvChangePass = findViewById(R.id.cvChangePass)
         cvChangePass.setOnClickListener{
-            dialogs.dialogChangePass(false)
+            dialogs.dialogChangePass(false){
+                Toast.makeText(this, "Password changed successfully", Toast.LENGTH_SHORT).show()
+            }
         }
 
         //dialog passRecovery

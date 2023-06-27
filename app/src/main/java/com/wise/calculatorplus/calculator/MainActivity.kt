@@ -364,7 +364,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             forgotPassCounter++
         }
     }
-    private fun loadSP(){
+     fun loadSP(){
         sf = getSharedPreferences("passTag", MODE_PRIVATE)
         sfEditor = sf.edit()
         spPass = sf.getString("sf_pass", "0000").toString()
@@ -375,10 +375,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun firstTimeLogin() {
         if (spPass == defaultValue) {
-            tvPrev.text = "Enter ${spPass} and press the = key"
+            dialogs.dialogChangePass(true) {
+                firstTimeInit()
+                Toast.makeText(this, "Password changed successfully", Toast.LENGTH_SHORT).show()
+            }
            // TODO("show how to login")
            // TODO("show how to use recovery password")
         }
+    }
+    private fun firstTimeInit(){
+        loadSP()
+        tvPrev.text = "Enter ${spPass} and press the = key"
     }
 
 }

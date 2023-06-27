@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.core.text.isDigitsOnly
 import com.wise.calculatorplus.R
+import com.wise.calculatorplus.calculator.MainActivity
 
 class Dialogs(private val context: Context) {
     private lateinit var btnConfirm: Button
@@ -18,6 +19,9 @@ class Dialogs(private val context: Context) {
     private lateinit var etAnswer: EditText
 
     fun dialogChangePassRecovery() {
+
+
+
         val dialog = Dialog(context)
         dialog.setContentView(R.layout.dialog_change_passrecovery)
         dialog.window?.setLayout(
@@ -50,7 +54,7 @@ class Dialogs(private val context: Context) {
         dialog.show()
     }
 
-    fun dialogChangePass(firstTimeLogin: Boolean) {
+    fun dialogChangePass(firstTimeLogin: Boolean, callback: () -> Unit) {
         val dialog = Dialog(context)
         dialog.setContentView(R.layout.dialog_change_pass)
         dialog.window?.setLayout(
@@ -69,22 +73,26 @@ class Dialogs(private val context: Context) {
             if (pass.isNotBlank() && pass.isDigitsOnly()) {
                 changePass(pass)
                 dialog.dismiss()
+
+                // Invoke the callback function to notify that the user is done with their input
+                callback()
             } else {
                 Toast.makeText(context, "Invalid password", Toast.LENGTH_SHORT).show()
             }
         }
-
         btnCancel.setOnClickListener {
-            if(!firstTimeLogin){
+            if(!firstTimeLogin) {
                 dialog.dismiss()
             }
             else{
-                Toast.makeText(context, "please enter a password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "enter a password", Toast.LENGTH_SHORT).show()
             }
         }
 
+        // Show the dialog
         dialog.show()
     }
+
 
     fun dialogResetPass(){
         val dialog = Dialog(context)
@@ -103,6 +111,7 @@ class Dialogs(private val context: Context) {
             resetPassword()
             dialog.dismiss()
             Toast.makeText(context, "Password Reset Successfully", Toast.LENGTH_SHORT).show()
+
             }
 
         btnCancel.setOnClickListener {
@@ -117,7 +126,6 @@ class Dialogs(private val context: Context) {
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         editor.putString("sf_pass", newPass)
         editor.apply()
-        Toast.makeText(context, "Password changed successfully", Toast.LENGTH_SHORT).show()
     }
 
     private fun changePassRecovery(question: String, answer: String) {
