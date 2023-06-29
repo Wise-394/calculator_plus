@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         tvSign = findViewById(R.id.tvSign)
     }
 
+
     override fun onClick(v: View?) {
         if (v != null) {
             when (v.id) {
@@ -329,9 +330,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 }
     private fun dialogPassRecovery(){
-        val dialog = Dialog(this)
-        if (forgotPassCounter >= 5) {
+       val dialog = Dialog(this)
+        if (forgotPassCounter == 5) {
             if (spQuestion.isNotBlank() && spAnswer.isNotBlank()) {
+                forgotPassCounter++
                 dialog.setContentView(R.layout.dialog_passrecovery)
                 dialog.window?.setLayout(
                     ViewGroup.LayoutParams.MATCH_PARENT,
@@ -350,11 +352,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     if (etAnswer.text.toString().isNotBlank() && etAnswer.text.toString() == spAnswer
                     ) {
                         val intent = Intent(this, Notes_MainActivity::class.java)
+                        dialog.dismiss()
                         startActivity(intent)
                         finish()
                     }
                 }
                 btnCancel.setOnClickListener {
+                    forgotPassCounter = 0
                     dialog.dismiss()
                 }
                 dialog.show()
@@ -364,7 +368,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             forgotPassCounter++
         }
     }
-     fun loadSP(){
+     private fun loadSP(){
         sf = getSharedPreferences("passTag", MODE_PRIVATE)
         sfEditor = sf.edit()
         spPass = sf.getString("sf_pass", "0000").toString()

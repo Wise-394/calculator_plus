@@ -9,7 +9,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.core.text.isDigitsOnly
 import com.wise.calculatorplus.R
-import com.wise.calculatorplus.calculator.MainActivity
 
 class Dialogs(private val context: Context) {
     private lateinit var btnConfirm: Button
@@ -18,7 +17,7 @@ class Dialogs(private val context: Context) {
     private lateinit var etQuestion: EditText
     private lateinit var etAnswer: EditText
 
-    fun dialogChangePassRecovery() {
+    fun dialogChangePassRecovery(callback: () -> Unit) {
 
 
 
@@ -31,17 +30,19 @@ class Dialogs(private val context: Context) {
         dialog.setCancelable(false)
         dialog.window?.attributes?.windowAnimations = R.style.animation
 
-        etPass = dialog.findViewById(R.id.etPassAnswer)
+        etQuestion = dialog.findViewById(R.id.etQuestion)
+        etAnswer = dialog.findViewById(R.id.etPassAnswer)
         btnConfirm = dialog.findViewById(R.id.btnConfirm)
         btnCancel = dialog.findViewById(R.id.btnCancel)
 
         btnConfirm.setOnClickListener {
-            if (etQuestion.text.isNotBlank() && etPass.text.isNotBlank()) {
+            if (etQuestion.text.isNotBlank() && etAnswer.text.isNotBlank()) {
                 val question = etQuestion.text.toString()
                 val answer = etAnswer.text.toString()
                 changePassRecovery(question, answer)
-                Toast.makeText(context, "Password recovery added successfully", Toast.LENGTH_SHORT).show()
+               Toast.makeText(context, "Password recovery added successfully", Toast.LENGTH_SHORT).show()
                 dialog.dismiss()
+                callback()
             } else {
                 Toast.makeText(context, "Invalid question/answer", Toast.LENGTH_SHORT).show()
             }
@@ -112,6 +113,7 @@ class Dialogs(private val context: Context) {
             dialog.dismiss()
             Toast.makeText(context, "Password Reset Successfully", Toast.LENGTH_SHORT).show()
 
+
             }
 
         btnCancel.setOnClickListener {
@@ -120,6 +122,28 @@ class Dialogs(private val context: Context) {
 
         dialog.show()
     }
+
+    fun dialogTipPassRecovery(){
+        val dialog = Dialog(context)
+        dialog.setContentView(R.layout.dialog_show_passrecovery_tip)
+        dialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        dialog.setCancelable(false)
+        dialog.window?.attributes?.windowAnimations = R.style.animation
+
+        btnConfirm = dialog.findViewById(R.id.btnConfirm)
+
+        btnConfirm.setOnClickListener {
+            dialog.dismiss()
+           // Toast.makeText(context, "Password Reset Successfully", Toast.LENGTH_SHORT).show()
+        }
+
+        dialog.show()
+    }
+
+
 
     private fun changePass(newPass: String) {
         val sharedPreferences: SharedPreferences = context.getSharedPreferences("passTag", Context.MODE_PRIVATE)
@@ -140,7 +164,7 @@ class Dialogs(private val context: Context) {
         val defaultPass: String = context.getString(R.string.defaultValue)
         val sharedPreferences: SharedPreferences = context.getSharedPreferences("passTag", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
-        editor.putString("sf_pass",defaultPass.toString())
+        editor.putString("sf_pass",defaultPass)
         editor.apply()
     }
 }

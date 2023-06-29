@@ -41,13 +41,13 @@
             android:inputType="text"
             android:textColorHint="#80FFFFFF"
             android:textSize="@dimen/_15ssp"
-            app:layout_constraintTop_toBottomOf="@+id/tvQuestionToAnswer"
+            app:layout_constraintTop_toBottomOf="@+id/etQuestion"
             tools:layout_editor_absoluteX="0dp">
 
         </EditText>
 
         <EditText
-            android:id="@+id/tvQuestionToAnswer"
+            android:id="@+id/etQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"

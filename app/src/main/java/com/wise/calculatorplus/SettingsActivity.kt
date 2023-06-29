@@ -36,7 +36,9 @@ class SettingsActivity : AppCompatActivity() {
         //dialog passRecovery
         cvChangePassRecovery = findViewById(R.id.cvChangePassRecovery)
         cvChangePassRecovery.setOnClickListener{
-           dialogs.dialogChangePassRecovery()
+           dialogs.dialogChangePassRecovery(){
+               dialogs.dialogTipPassRecovery()
+           }
         }
         ibtnBack.setOnClickListener{
             finish()
