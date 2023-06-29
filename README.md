@@ -28,7 +28,17 @@ An Android application with a hidden notes feature. The calculator works like an
 - Calculator: Perform standard arithmetic operations with the built-in calculator.
 
 
+
 ## Calculator++
+
+
+This project includes code and ideas sourced from the GeeksforGeeks website.
+
+Website: [GeeksforGeeks](https://www.geeksforgeeks.org/how-to-build-a-simple-note-android-app-using-mvvm-and-room-database/) (how-to-build-a-simple-note-android-app-using-mvvm-and-room-database)</br>
+Author: Chaitanya Munje</br>
+License: CCBY-SA (Creative Commons Attribution-ShareAlike)</br>
+
+Please note that while some code and ideas from GeeksforGeeks were used as a reference, the other functionality and custom codes in this app were developed by @wise-394 and are not part of the GeeksforGeeks article.
 
 
 If you have any concerns, please reach out to me at github @wise-394
