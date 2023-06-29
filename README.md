@@ -32,7 +32,7 @@ An Android application with a hidden notes feature. The calculator works like an
 ## Calculator++
 
 
-This project includes code and ideas sourced from the GeeksforGeeks website.
+This project includes code sourced from the GeeksforGeeks website.
 
 Website: [GeeksforGeeks](https://www.geeksforgeeks.org/how-to-build-a-simple-note-android-app-using-mvvm-and-room-database/) (how-to-build-a-simple-note-android-app-using-mvvm-and-room-database)</br>
 Author: Chaitanya Munje</br>
