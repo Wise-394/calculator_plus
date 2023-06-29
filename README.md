@@ -12,6 +12,11 @@ An Android application with a hidden notes feature. The calculator works like an
 ![kotlin Badge](https://img.shields.io/badge/Kotlin-purple)
 ![room Badge](https://img.shields.io/badge/Sqlite-Room-blue)
 
+## Screenshots
+![image](https://github.com/Wise-394/calculator_plus/assets/114738222/c7ec4d4c-cea1-41dc-823b-6447e5a3da2d)
+![image](https://github.com/Wise-394/calculator_plus/assets/114738222/22e9e5c5-5a29-4e6d-9091-a6671d7a5936)
+
+
 
 ## Calculator++
 
