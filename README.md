@@ -38,7 +38,7 @@ Website: [GeeksforGeeks](https://www.geeksforgeeks.org/how-to-build-a-simple-not
 Author: Chaitanya Munje</br>
 License: CCBY-SA (Creative Commons Attribution-ShareAlike)</br>
 
-Please note that while some code and ideas from GeeksforGeeks were used as a reference, the other functionality and custom codes in this app were developed by @wise-394 and are not part of the GeeksforGeeks article.
+Please note that while some code from GeeksforGeeks were used as a reference, the other functionality and codes in this app were developed by @wise-394 and are not part of the GeeksforGeeks article.
 
 
 If you have any concerns, please reach out to me at github @wise-394
