@@ -23,9 +23,9 @@ An Android application with a hidden notes feature. The calculator works like an
 ## Features
 
 
--Hidden Notes Functionality: Access a hidden notes screen by entering a secret PIN. store and hide your notes
--Secure PIN Authentication: Set up a PIN to unlock the hidden notes feature. Only authorized users can access and view the protected notes.
--Intuitive Calculator: Perform standard arithmetic operations with the built-in calculator. Use it just like any regular calculator app while maintaining the confidentiality of your hidden notes.
+- Hidden Notes Functionality: Access a hidden notes screen by entering a secret PIN
+- Secure PIN Authentication: Set up a PIN to unlock the hidden notes feature.
+- Calculator: Perform standard arithmetic operations with the built-in calculator.
 
 
 ## Calculator++
