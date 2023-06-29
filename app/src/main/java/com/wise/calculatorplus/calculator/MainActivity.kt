@@ -3,19 +3,22 @@ package com.wise.calculatorplus.calculator
 import android.app.Dialog
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.StrictMode
+import android.os.StrictMode.VmPolicy
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.wise.calculatorplus.notes.Notes_MainActivity
 import com.wise.calculatorplus.R
 import com.wise.calculatorplus.dialogs.Dialogs
+import com.wise.calculatorplus.notes.Notes_MainActivity
+
 
 //welcome this is my first android project so expect some spaghetti code tho i did
 // my best to make this code readable as possible
@@ -343,16 +346,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 dialog.window?.attributes?.windowAnimations = R.style.animation
 
                 //init
-                val tvQUestion = dialog.findViewById<TextView>(R.id.tvQuestionToAnswer)
+                val tvQuestion = dialog.findViewById<TextView>(R.id.tvQuestionToAnswer)
                 val btnConfirm = dialog.findViewById<Button>(R.id.btnConfirm)
                 val btnCancel = dialog.findViewById<Button>(R.id.btnCancel)
                 val etAnswer = dialog.findViewById<EditText>(R.id.etPassAnswer)
-                tvQUestion.text = spQuestion
+                tvQuestion.text = spQuestion
                 btnConfirm.setOnClickListener {
                     if (etAnswer.text.toString().isNotBlank() && etAnswer.text.toString() == spAnswer
                     ) {
-                        val intent = Intent(this, Notes_MainActivity::class.java)
                         dialog.dismiss()
+                        val intent = Intent(this, Notes_MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     }
