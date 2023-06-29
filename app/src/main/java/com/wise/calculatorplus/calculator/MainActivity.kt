@@ -4,8 +4,6 @@ import android.app.Dialog
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.StrictMode
-import android.os.StrictMode.VmPolicy
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
@@ -392,7 +390,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
     private fun firstTimeInit(){
         loadSP()
-        tvPrev.text = "Enter ${spPass} and press the = key"
+        tvPrev.text = "Enter $spPass and press the = key"
     }
 
 }

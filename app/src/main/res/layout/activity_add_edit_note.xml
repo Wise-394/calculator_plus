@@ -14,14 +14,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/btnMainBg"
-        android:hint="Enter Note Title"
+        android:hint="@string/enter_note_title"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="@dimen/_20ssp"
         app:layout_constraintBottom_toTopOf="@+id/idEdtNoteDesc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="text"/>
 
     <!--edit text for note description-->
 
@@ -33,7 +34,7 @@
         android:layout_height="0dp"
         android:background="@color/darkThemeBg"
         android:gravity="start|top"
-        android:hint="Enter your text here"
+        android:hint="@string/enter_your_text_here"
         android:padding="@dimen/_5sdp"
         android:inputType="textMultiLine"
         android:singleLine="false"
@@ -56,7 +57,9 @@
         app:layout_constraintTop_toTopOf="@+id/guideline"
         app:layout_constraintVertical_bias="0.978"
         app:srcCompat="@drawable/baseline_check_24"
-        android:tint="@color/black"/>
+        android:tint="@color/black"
+        android:contentDescription="@string/save"
+        android:focusable="true" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

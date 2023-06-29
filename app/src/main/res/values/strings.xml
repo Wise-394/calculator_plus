@@ -2,4 +2,7 @@
     <string name="app_name">calculator++</string>
     <string name="defaultValue">0000</string>
     <string name="tip_passrecovery">click the ⓘ button in calculator 6 times to enter password recovery</string>
+    <string name="enter_note_title">Enter Note Title</string>
+    <string name="enter_your_text_here">Enter your text here</string>
+    <string name="save">save</string>
 </resources>
