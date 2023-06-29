@@ -15,5 +15,5 @@ An Android application with a hidden notes feature. The calculator works like an
 
 ## Calculator++
 
-If you have any feedback, please reach out to me at github @wise-394
+If you have any concerns, please reach out to me at github @wise-394
 
