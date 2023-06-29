@@ -8,16 +8,16 @@ An Android application with a hidden notes feature. The calculator works like an
 ## Tech used
 
 
-![android Badge](https://img.shields.io/badge/AndroidStudio-Green)
-![kotlin Badge](https://img.shields.io/badge/Kotlin-purple)
-![room Badge](https://img.shields.io/badge/Sqlite-Room-blue)
+![android studio Badge](https://img.shields.io/badge/AndroidStudio-black?style=for-the-badge&logo=androidstudio&logoColor=white)
+![kt](https://img.shields.io/badge/Kotlin-black?style=for-the-badge&logo=kotlin&logoColor=white)
+![room](https://img.shields.io/badge/Room_sqlite-black?style=for-the-badge&logo=sqlite&logoColor=white)
 
 
-## Screenshots
+## Preview
+
+![357304494_1219471232067460_7382355140431796541_n](https://github.com/Wise-394/calculator_plus/assets/114738222/b0577a2e-c418-4af5-a0a8-0f107394fb72)
 
 
-![image](https://github.com/Wise-394/calculator_plus/assets/114738222/c7ec4d4c-cea1-41dc-823b-6447e5a3da2d)
-![image](https://github.com/Wise-394/calculator_plus/assets/114738222/22e9e5c5-5a29-4e6d-9091-a6671d7a5936)
 
 
 ## Features
