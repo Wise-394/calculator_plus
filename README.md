@@ -27,7 +27,12 @@ An Android application with a hidden notes feature. The calculator works like an
 - Secure PIN Authentication: Set up a PIN to unlock the hidden notes feature.
 - Calculator: Perform standard arithmetic operations with the built-in calculator.
 
+## Install/Import
+- download the latest release version and install the **calculatorplus.apk** in your android device </br>
+Mininum supported sdk version are **SDK 24/ Android 7 (nougat)**
 
+- Import the project in your android studio by downloading the source code</br>
+this project was built with Android Studio Flamingo | 2022.2.1 Patch 2
 
 ## Calculator++
 
