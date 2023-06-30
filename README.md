@@ -4,6 +4,7 @@
 
 An Android application with a hidden notes feature. The calculator works like an ordinary calculator that can perform arithmetic operations but once the user entered his secret pin then it will go to the hidden notes screen where there user can save and hide notes
 
+[![download](https://img.shields.io/badge/CLick_me_to_download-black?style=for-the-badge&logo=android&logoColor=white)](https://github.com/Wise-394/calculator_plus/releases/tag/1.0)
 
 ## Tech used
 
